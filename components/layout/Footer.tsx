@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
-import { NAV_LINKS, SERVICES } from '@/lib/nav';
+import { NAV_LINKS, SERVICES, CONTACT_INFO } from '@/lib/nav';
 
 export default function Footer() {
   return (
@@ -28,8 +28,9 @@ export default function Footer() {
               Hustle<span className="text-accent">&</span>Flow
             </Link>
             <p className="mt-4 text-sm text-muted max-w-xs leading-relaxed">
-              A growth and creative agency building brands, performance engines, and digital experiences for ambitious companies.
+              A performance marketing and growth agency helping D2C and e-commerce brands generate more revenue.
             </p>
+            <p className="mt-4 text-sm text-muted max-w-xs leading-relaxed">{CONTACT_INFO.address}</p>
           </div>
 
           <div>
@@ -62,7 +63,8 @@ export default function Footer() {
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 text-xs text-muted">
           <p>© {new Date().getFullYear()} Hustle &amp; Flow. All rights reserved.</p>
           <div className="flex items-center gap-6">
-            <a href="mailto:hello@hustleandflow.in" className="hover:text-accent transition-colors">hello@hustleandflow.in</a>
+            <a href={`mailto:${CONTACT_INFO.email}`} className="hover:text-accent transition-colors">{CONTACT_INFO.email}</a>
+            <a href={`tel:${CONTACT_INFO.phone}`} className="hover:text-accent transition-colors">{CONTACT_INFO.phone}</a>
             <a href="#" className="hover:text-accent transition-colors">Instagram</a>
             <a href="#" className="hover:text-accent transition-colors">LinkedIn</a>
           </div>

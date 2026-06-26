@@ -18,16 +18,16 @@ export default function Hero() {
           className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-4 py-1.5 mb-8"
         >
           <Sparkles size={14} className="text-accent" />
-          <span className="text-xs font-medium text-muted">Growth &amp; Creative Agency — based in India, working worldwide</span>
+          <span className="text-xs font-medium text-muted">Ignite Your Hustle, Find Your Flow</span>
         </motion.div>
 
         <motion.h1
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-          className="font-display text-[2.75rem] sm:text-6xl md:text-7xl lg:text-[5.5rem] font-medium leading-[0.98] tracking-tight max-w-5xl text-balance"
+          className="font-display text-[2.75rem] sm:text-6xl md:text-7xl lg:text-[5.5rem] font-semibold leading-[0.98] tracking-tight max-w-5xl text-balance uppercase"
         >
-          We build brands that <span className="text-accent">hustle</span> and growth that <span className="gradient-text">flows.</span>
+          We help you generate <span className="text-accent">more revenue.</span>
         </motion.h1>
 
         <motion.p
@@ -36,7 +36,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
           className="mt-8 text-lg md:text-xl text-muted max-w-xl leading-relaxed"
         >
-          Strategy, design, and performance marketing under one roof — for founders who want results, not decks.
+          Performance marketing, growth systems, and creative built for D2C and e-commerce brands that want measurable revenue, not vanity metrics.
         </motion.p>
 
         <motion.div
@@ -68,8 +68,8 @@ export default function Hero() {
         >
           {[
             { value: '60+', label: 'Brands grown' },
-            { value: '4.2x', label: 'Avg. revenue lift' },
-            { value: '8 yrs', label: 'In the trenches' },
+            { value: '170%', label: 'Best ROAS lift' },
+            { value: '10+ yrs', label: 'Founder experience' },
           ].map((s) => (
             <div key={s.label}>
               <p className="font-display text-3xl md:text-4xl font-medium text-accent">{s.value}</p>

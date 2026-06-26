@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
+import { AnimatePresence, motion } from 'framer-motion';
 import { NAV_LINKS } from '@/lib/nav';
 import { cn } from '@/lib/utils';
 
@@ -58,27 +59,41 @@ export default function Navbar() {
         <button
           aria-label="Toggle menu"
           onClick={() => setOpen((v) => !v)}
-          className="md:hidden text-ink"
+          className="md:hidden text-ink p-2 -mr-2"
         >
           {open ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
-      {open && (
-        <div className="md:hidden bg-bg border-t border-border px-6 py-6 flex flex-col gap-5">
-          {NAV_LINKS.map((link) => (
-            <Link key={link.href} href={link.href} className="text-base font-medium text-ink">
-              {link.label}
-            </Link>
-          ))}
-          <Link
-            href="/contact"
-            className="inline-flex items-center justify-center rounded-full bg-accent text-bg px-5 py-3 text-sm font-medium mt-2"
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+            className="md:hidden bg-bg border-t border-border overflow-hidden"
           >
-            Start a project
-          </Link>
-        </div>
-      )}
+            <div className="px-6 py-6 flex flex-col gap-1">
+              {NAV_LINKS.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="text-base font-medium text-ink py-3 border-b border-border/60 last:border-0"
+                >
+                  {link.label}
+                </Link>
+              ))}
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center rounded-full bg-accent text-bg px-5 py-3.5 text-sm font-medium mt-5"
+              >
+                Start a project
+              </Link>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }

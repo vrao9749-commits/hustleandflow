@@ -17,7 +17,7 @@ export default function ServicesGrid() {
         </Reveal>
 
         <div className="mt-16 grid md:grid-cols-2 gap-5">
-          {SERVICES.map((service, i) => (
+          {SERVICES.slice(0, 6).map((service, i) => (
             <Reveal key={service.slug} delay={i * 0.06}>
               <Link
                 href={`/services/${service.slug}`}
@@ -38,6 +38,16 @@ export default function ServicesGrid() {
             </Reveal>
           ))}
         </div>
+
+        <Reveal delay={0.2}>
+          <Link
+            href="/services"
+            className="mt-10 inline-flex items-center gap-2 text-sm font-medium text-accent hover:gap-3 transition-all duration-300"
+          >
+            View all services
+            <ArrowUpRight size={16} />
+          </Link>
+        </Reveal>
       </div>
     </section>
   );

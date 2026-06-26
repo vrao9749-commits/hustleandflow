@@ -2,24 +2,18 @@ import type { Metadata } from 'next';
 import SectionHeading from '@/components/ui/SectionHeading';
 import Reveal from '@/components/ui/Reveal';
 import CTASection from '@/components/home/CTASection';
-import { Target, Heart, Zap } from 'lucide-react';
+import { TEAM } from '@/lib/nav';
+import { Target, Hammer, TrendingUp } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'About',
-  description: 'Hustle & Flow is a growth and creative agency built by operators, not just marketers.',
+  description: 'Hustle & Flow is built by humans, powered by hustle — an ownership-mentality performance marketing team.',
 };
 
 const VALUES = [
-  { icon: Target, title: 'Outcomes over output', desc: 'We measure ourselves by revenue, retention, and CAC — not deliverables shipped.' },
-  { icon: Zap, title: 'Speed is a feature', desc: 'Slow agencies lose to fast competitors. We move in weeks, not quarters.' },
-  { icon: Heart, title: 'Brutal honesty', desc: 'We tell you when something is not working before you have to ask.' },
-];
-
-const TEAM = [
-  { name: 'Aarav Shah', role: 'Founder & Strategy Lead' },
-  { name: 'Ishita Rao', role: 'Head of Performance Marketing' },
-  { name: 'Devika Menon', role: 'Creative Director' },
-  { name: 'Karan Bedi', role: 'Lead Engineer' },
+  { icon: Target, title: 'Truth over Trends', desc: 'We chase what actually moves revenue, not whatever is trending on ad platforms this week.' },
+  { icon: Hammer, title: 'Craft over Comfort', desc: 'We stay in the weeds — creative, copy, tracking, bids — because the details are where campaigns win or lose.' },
+  { icon: TrendingUp, title: 'Long Games Win', desc: 'We build systems and relationships built for years, not a single campaign cycle.' },
 ];
 
 export default function AboutPage() {
@@ -29,13 +23,12 @@ export default function AboutPage() {
         <div className="max-w-wrap mx-auto px-6 md:px-8">
           <Reveal>
             <span className="text-xs uppercase tracking-[0.2em] text-muted">About us</span>
-            <h1 className="font-display text-4xl sm:text-5xl md:text-7xl font-medium leading-[1.02] mt-5 max-w-4xl text-balance">
-              We started as operators. We still think like operators.
+            <h1 className="font-display text-4xl sm:text-5xl md:text-7xl font-semibold leading-[1.02] mt-5 max-w-4xl text-balance uppercase">
+              Built by Humans, Powered by Hustle.
             </h1>
             <p className="mt-8 text-lg md:text-xl text-muted max-w-2xl leading-relaxed">
-              Hustle &amp; Flow was founded by people who ran growth and brand teams inside fast-scaling startups —
-              not by agency lifers chasing retainers. That shows up in everything we do: the way we report,
-              the way we prioritise, and the way we get fired up about a single percentage point of CAC.
+              We went from chaos to clarity by running ad spend like operators, not agency lifers chasing retainers.
+              Every account we touch runs on an ownership mentality — we treat your account like it&apos;s our own.
             </p>
           </Reveal>
         </div>
@@ -44,12 +37,12 @@ export default function AboutPage() {
       <section className="py-20 border-y border-border bg-surface/30">
         <div className="max-w-wrap mx-auto px-6 md:px-8 grid md:grid-cols-3 gap-10">
           {[
-            { value: '2017', label: 'Founded' },
+            { value: '10+', label: 'Years of founder experience' },
             { value: '60+', label: 'Brands worked with' },
-            { value: '14', label: 'People on the team' },
+            { value: `${TEAM.length}`, label: 'People on the team' },
           ].map((s) => (
             <Reveal key={s.label}>
-              <p className="font-display text-5xl font-medium text-accent">{s.value}</p>
+              <p className="font-display text-5xl font-semibold text-accent">{s.value}</p>
               <p className="text-muted mt-2">{s.label}</p>
             </Reveal>
           ))}
@@ -82,7 +75,7 @@ export default function AboutPage() {
           <Reveal>
             <SectionHeading eyebrow="The team" title="Small team, senior people, no bench warmers." />
           </Reveal>
-          <div className="mt-16 grid sm:grid-cols-2 md:grid-cols-4 gap-5">
+          <div className="mt-16 grid sm:grid-cols-2 md:grid-cols-3 gap-5">
             {TEAM.map((member, i) => (
               <Reveal key={member.name} delay={i * 0.06}>
                 <div className="rounded-3xl border border-border bg-surface p-6">
@@ -92,7 +85,9 @@ export default function AboutPage() {
                     </span>
                   </div>
                   <p className="font-medium">{member.name}</p>
-                  <p className="text-sm text-muted">{member.role}</p>
+                  <p className="text-sm text-accent">{member.role}</p>
+                  <p className="text-xs text-muted mt-1">{member.exp}</p>
+                  <p className="text-sm text-muted mt-3 leading-relaxed">{member.bio}</p>
                 </div>
               </Reveal>
             ))}

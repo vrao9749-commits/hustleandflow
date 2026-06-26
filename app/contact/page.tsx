@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
-import { Mail, MapPin, Clock } from 'lucide-react';
+import { Mail, MapPin, Phone } from 'lucide-react';
 import Reveal from '@/components/ui/Reveal';
 import ContactForm from '@/components/contact/ContactForm';
+import { CONTACT_INFO } from '@/lib/nav';
 
 export const metadata: Metadata = {
   title: 'Contact',
@@ -9,9 +10,9 @@ export const metadata: Metadata = {
 };
 
 const INFO = [
-  { icon: Mail, label: 'Email us', value: 'hello@hustleandflow.in' },
-  { icon: MapPin, label: 'Studio', value: 'Mumbai, India' },
-  { icon: Clock, label: 'Response time', value: 'Within 1 business day' },
+  { icon: Mail, label: 'Email us', value: CONTACT_INFO.email, href: `mailto:${CONTACT_INFO.email}` },
+  { icon: Phone, label: 'Call us', value: CONTACT_INFO.phone, href: `tel:${CONTACT_INFO.phone}` },
+  { icon: MapPin, label: 'Studio', value: CONTACT_INFO.address, href: undefined },
 ];
 
 export default function ContactPage() {
@@ -22,12 +23,12 @@ export default function ContactPage() {
           <div>
             <Reveal>
               <span className="text-xs uppercase tracking-[0.2em] text-muted">Contact</span>
-              <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-medium leading-[1.05] mt-5 text-balance">
-                Tell us where it hurts. We'll tell you how to fix it.
+              <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-semibold leading-[1.05] mt-5 text-balance uppercase">
+                Tell us where it hurts. We&apos;ll tell you how to fix it.
               </h1>
               <p className="mt-6 text-lg text-muted leading-relaxed max-w-md">
-                Whether it's a brand that needs sharpening or a funnel that's leaking budget — start with a
-                short note and we'll come back with a point of view, not just a sales call.
+                Whether it&apos;s a brand that needs sharpening or a funnel that&apos;s leaking budget — start with a
+                short note and we&apos;ll come back with a point of view, not just a sales call.
               </p>
             </Reveal>
 
@@ -40,12 +41,29 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <p className="text-xs text-muted uppercase tracking-[0.15em]">{item.label}</p>
-                      <p className="font-medium mt-0.5">{item.value}</p>
+                      {item.href ? (
+                        <a href={item.href} className="font-medium mt-0.5 block hover:text-accent transition-colors">
+                          {item.value}
+                        </a>
+                      ) : (
+                        <p className="font-medium mt-0.5">{item.value}</p>
+                      )}
                     </div>
                   </div>
                 </Reveal>
               ))}
             </div>
+
+            <Reveal delay={0.2}>
+              <a
+                href={CONTACT_INFO.calendly}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-10 inline-flex items-center gap-2 rounded-full bg-accent text-bg px-7 py-4 text-base font-medium hover:bg-ink transition-colors duration-300"
+              >
+                Book a meeting
+              </a>
+            </Reveal>
           </div>
 
           <Reveal delay={0.1}>

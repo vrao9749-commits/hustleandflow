@@ -17,12 +17,12 @@ export default function ServicesPage() {
         <div className="max-w-wrap mx-auto px-6 md:px-8">
           <Reveal>
             <span className="text-xs uppercase tracking-[0.2em] text-muted">Services</span>
-            <h1 className="font-display text-4xl sm:text-5xl md:text-7xl font-medium leading-[1.02] mt-5 max-w-4xl text-balance">
-              Everything you need to grow, under one roof.
+            <h1 className="font-display text-4xl sm:text-5xl md:text-7xl font-semibold leading-[1.02] mt-5 max-w-4xl text-balance uppercase">
+              Build Growth Systems, Not Random Campaigns.
             </h1>
             <p className="mt-8 text-lg md:text-xl text-muted max-w-2xl leading-relaxed">
-              No vendor juggling. No conflicting strategies. One team that owns brand, performance, and the
-              digital experiences that tie them together.
+              No vendor juggling. No conflicting strategies. One team that owns paid media, organic, marketplaces,
+              and the digital experiences that tie them together.
             </p>
           </Reveal>
         </div>
